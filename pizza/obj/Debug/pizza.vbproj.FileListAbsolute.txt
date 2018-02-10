@@ -1,0 +1,12 @@
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\bin\Debug\pizza.exe.config
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\bin\Debug\pizza.exe
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\bin\Debug\pizza.pdb
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\bin\Debug\pizza.xml
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\obj\Debug\pizza.vbprojResolveAssemblyReference.cache
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\obj\Debug\pizza.Form1.resources
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\obj\Debug\pizza.Resources.resources
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\obj\Debug\pizza.vbproj.GenerateResource.Cache
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\obj\Debug\pizza.vbproj.CoreCompileInputs.cache
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\obj\Debug\pizza.exe
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\obj\Debug\pizza.xml
+C:\Users\mundial\Desktop\PIZZA\pizza\pizza\obj\Debug\pizza.pdb
