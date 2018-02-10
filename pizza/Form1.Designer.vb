@@ -518,9 +518,6 @@ Partial Class Form1
     Friend WithEvents LabelCategorie4 As Label
     Friend WithEvents PictureBox1 As PictureBox
 
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs)
-
-    End Sub
 
     Friend WithEvents Label1000gr As Label
     Friend WithEvents Label500gr As Label
@@ -529,7 +526,5 @@ Partial Class Form1
     Friend WithEvents TextBox500gr As TextBox
     Friend WithEvents TextBox1000gr As TextBox
 
-    Private Sub TextBox2_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox1000gr.TextChanged
 
-    End Sub
 End Class
