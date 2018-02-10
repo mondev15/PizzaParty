@@ -18,10 +18,10 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         InitDialogue()
+        currentState = State.COMMANDE_ENCOURS
     End Sub
 
     Private Sub addToResumeCommande()
-
     End Sub
 
 End Class
