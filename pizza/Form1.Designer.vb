@@ -32,6 +32,7 @@ Partial Class Form1
         Me.ComboBoxCuisson = New System.Windows.Forms.ComboBox()
         Me.ButtonPasserCommand = New System.Windows.Forms.Button()
         Me.PanelCuissonPate = New System.Windows.Forms.Panel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.PictureBoxRecommandation2 = New System.Windows.Forms.PictureBox()
         Me.PictureBoxCategorie2 = New System.Windows.Forms.PictureBox()
         Me.LabelRecommandations = New System.Windows.Forms.Label()
@@ -51,21 +52,22 @@ Partial Class Form1
         Me.Button1 = New System.Windows.Forms.Button()
         Me.LabelCategorie4 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.Label1000gr = New System.Windows.Forms.Label()
-        Me.Label500gr = New System.Windows.Forms.Label()
-        Me.Label250gr = New System.Windows.Forms.Label()
-        Me.ComboBox250gr = New System.Windows.Forms.ComboBox()
-        Me.ComboBox500gr = New System.Windows.Forms.ComboBox()
-        Me.ComboBox1000gr = New System.Windows.Forms.ComboBox()
+        Me.LabelLarge = New System.Windows.Forms.Label()
+        Me.LabelMedium = New System.Windows.Forms.Label()
+        Me.LabelSmall = New System.Windows.Forms.Label()
+        Me.ComboBoxSmall = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxMedium = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxLarge = New System.Windows.Forms.ComboBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.LabelSelectionPizza = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox3 = New System.Windows.Forms.PictureBox()
-        Me.PictureBox4 = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label4Fromages = New System.Windows.Forms.Label()
-        Me.LabelBonplan = New System.Windows.Forms.Label()
         Me.LabelMargherita = New System.Windows.Forms.Label()
+        Me.LabelBonplan = New System.Windows.Forms.Label()
+        Me.Label4Fromages = New System.Windows.Forms.Label()
+        Me.PictureBoxMargherita = New System.Windows.Forms.PictureBox()
+        Me.PictureBoxBonPlan = New System.Windows.Forms.PictureBox()
+        Me.PictureBox4Fromages = New System.Windows.Forms.PictureBox()
+        Me.LabelSelectionPizza = New System.Windows.Forms.Label()
+        Me.PanelSize = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.PanelResume.SuspendLayout()
         Me.PanelCuissonPate.SuspendLayout()
         CType(Me.PictureBoxRecommandation2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,9 +79,10 @@ Partial Class Form1
         Me.PanelCategorie.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxMargherita, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBoxBonPlan, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox4Fromages, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelSize.SuspendLayout()
         Me.SuspendLayout()
         '
         'PanelResume
@@ -173,6 +176,16 @@ Partial Class Form1
         Me.PanelCuissonPate.Name = "PanelCuissonPate"
         Me.PanelCuissonPate.Size = New System.Drawing.Size(352, 145)
         Me.PanelCuissonPate.TabIndex = 8
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(100, 15)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(142, 20)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "Personnalisation"
         '
         'PictureBoxRecommandation2
         '
@@ -374,62 +387,62 @@ Partial Class Form1
         Me.PictureBox1.TabIndex = 20
         Me.PictureBox1.TabStop = False
         '
-        'Label1000gr
+        'LabelLarge
         '
-        Me.Label1000gr.AutoSize = True
-        Me.Label1000gr.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1000gr.Location = New System.Drawing.Point(848, 92)
-        Me.Label1000gr.Name = "Label1000gr"
-        Me.Label1000gr.Size = New System.Drawing.Size(167, 17)
-        Me.Label1000gr.TabIndex = 23
-        Me.Label1000gr.Text = "1000 gr (3-4  personnes)"
+        Me.LabelLarge.AutoSize = True
+        Me.LabelLarge.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelLarge.Location = New System.Drawing.Point(402, 58)
+        Me.LabelLarge.Name = "LabelLarge"
+        Me.LabelLarge.Size = New System.Drawing.Size(45, 17)
+        Me.LabelLarge.TabIndex = 23
+        Me.LabelLarge.Text = "Large"
         '
-        'Label500gr
+        'LabelMedium
         '
-        Me.Label500gr.AutoSize = True
-        Me.Label500gr.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label500gr.Location = New System.Drawing.Point(620, 91)
-        Me.Label500gr.Name = "Label500gr"
-        Me.Label500gr.Size = New System.Drawing.Size(155, 17)
-        Me.Label500gr.TabIndex = 24
-        Me.Label500gr.Text = "500 gr (2-3 personnes)"
+        Me.LabelMedium.AutoSize = True
+        Me.LabelMedium.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelMedium.Location = New System.Drawing.Point(230, 54)
+        Me.LabelMedium.Name = "LabelMedium"
+        Me.LabelMedium.Size = New System.Drawing.Size(57, 17)
+        Me.LabelMedium.TabIndex = 24
+        Me.LabelMedium.Text = "Medium"
         '
-        'Label250gr
+        'LabelSmall
         '
-        Me.Label250gr.AutoSize = True
-        Me.Label250gr.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label250gr.Location = New System.Drawing.Point(409, 91)
-        Me.Label250gr.Name = "Label250gr"
-        Me.Label250gr.Size = New System.Drawing.Size(135, 17)
-        Me.Label250gr.TabIndex = 25
-        Me.Label250gr.Text = "250 gr (1 personne)"
+        Me.LabelSmall.AutoSize = True
+        Me.LabelSmall.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelSmall.Location = New System.Drawing.Point(73, 54)
+        Me.LabelSmall.Name = "LabelSmall"
+        Me.LabelSmall.Size = New System.Drawing.Size(42, 17)
+        Me.LabelSmall.TabIndex = 25
+        Me.LabelSmall.Text = "Small"
         '
-        'ComboBox250gr
+        'ComboBoxSmall
         '
-        Me.ComboBox250gr.FormattingEnabled = True
-        Me.ComboBox250gr.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7"})
-        Me.ComboBox250gr.Location = New System.Drawing.Point(361, 91)
-        Me.ComboBox250gr.Name = "ComboBox250gr"
-        Me.ComboBox250gr.Size = New System.Drawing.Size(44, 21)
-        Me.ComboBox250gr.TabIndex = 29
+        Me.ComboBoxSmall.FormattingEnabled = True
+        Me.ComboBoxSmall.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7"})
+        Me.ComboBoxSmall.Location = New System.Drawing.Point(19, 54)
+        Me.ComboBoxSmall.Name = "ComboBoxSmall"
+        Me.ComboBoxSmall.Size = New System.Drawing.Size(44, 21)
+        Me.ComboBoxSmall.TabIndex = 29
         '
-        'ComboBox500gr
+        'ComboBoxMedium
         '
-        Me.ComboBox500gr.FormattingEnabled = True
-        Me.ComboBox500gr.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7"})
-        Me.ComboBox500gr.Location = New System.Drawing.Point(571, 91)
-        Me.ComboBox500gr.Name = "ComboBox500gr"
-        Me.ComboBox500gr.Size = New System.Drawing.Size(43, 21)
-        Me.ComboBox500gr.TabIndex = 30
+        Me.ComboBoxMedium.FormattingEnabled = True
+        Me.ComboBoxMedium.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7"})
+        Me.ComboBoxMedium.Location = New System.Drawing.Point(172, 54)
+        Me.ComboBoxMedium.Name = "ComboBoxMedium"
+        Me.ComboBoxMedium.Size = New System.Drawing.Size(43, 21)
+        Me.ComboBoxMedium.TabIndex = 30
         '
-        'ComboBox1000gr
+        'ComboBoxLarge
         '
-        Me.ComboBox1000gr.FormattingEnabled = True
-        Me.ComboBox1000gr.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7"})
-        Me.ComboBox1000gr.Location = New System.Drawing.Point(793, 91)
-        Me.ComboBox1000gr.Name = "ComboBox1000gr"
-        Me.ComboBox1000gr.Size = New System.Drawing.Size(37, 21)
-        Me.ComboBox1000gr.TabIndex = 31
+        Me.ComboBoxLarge.FormattingEnabled = True
+        Me.ComboBoxLarge.Items.AddRange(New Object() {"0", "1", "2", "3", "4", "5", "6", "7"})
+        Me.ComboBoxLarge.Location = New System.Drawing.Point(343, 57)
+        Me.ComboBoxLarge.Name = "ComboBoxLarge"
+        Me.ComboBoxLarge.Size = New System.Drawing.Size(45, 21)
+        Me.ComboBoxLarge.TabIndex = 31
         '
         'Panel1
         '
@@ -437,14 +450,77 @@ Partial Class Form1
         Me.Panel1.Controls.Add(Me.LabelMargherita)
         Me.Panel1.Controls.Add(Me.LabelBonplan)
         Me.Panel1.Controls.Add(Me.Label4Fromages)
-        Me.Panel1.Controls.Add(Me.PictureBox4)
-        Me.Panel1.Controls.Add(Me.PictureBox3)
-        Me.Panel1.Controls.Add(Me.PictureBox2)
+        Me.Panel1.Controls.Add(Me.PictureBoxMargherita)
+        Me.Panel1.Controls.Add(Me.PictureBoxBonPlan)
+        Me.Panel1.Controls.Add(Me.PictureBox4Fromages)
         Me.Panel1.Controls.Add(Me.LabelSelectionPizza)
-        Me.Panel1.Location = New System.Drawing.Point(38, 142)
+        Me.Panel1.Location = New System.Drawing.Point(38, 60)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(601, 145)
         Me.Panel1.TabIndex = 32
+        '
+        'LabelMargherita
+        '
+        Me.LabelMargherita.AutoSize = True
+        Me.LabelMargherita.BackColor = System.Drawing.Color.White
+        Me.LabelMargherita.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelMargherita.Location = New System.Drawing.Point(483, 123)
+        Me.LabelMargherita.Name = "LabelMargherita"
+        Me.LabelMargherita.Size = New System.Drawing.Size(67, 15)
+        Me.LabelMargherita.TabIndex = 6
+        Me.LabelMargherita.Text = "Margherita"
+        '
+        'LabelBonplan
+        '
+        Me.LabelBonplan.AutoSize = True
+        Me.LabelBonplan.BackColor = System.Drawing.Color.White
+        Me.LabelBonplan.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelBonplan.Location = New System.Drawing.Point(281, 123)
+        Me.LabelBonplan.Name = "LabelBonplan"
+        Me.LabelBonplan.Size = New System.Drawing.Size(57, 15)
+        Me.LabelBonplan.TabIndex = 5
+        Me.LabelBonplan.Text = "Bon Plan"
+        '
+        'Label4Fromages
+        '
+        Me.Label4Fromages.AutoSize = True
+        Me.Label4Fromages.BackColor = System.Drawing.Color.White
+        Me.Label4Fromages.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4Fromages.Location = New System.Drawing.Point(34, 123)
+        Me.Label4Fromages.Name = "Label4Fromages"
+        Me.Label4Fromages.Size = New System.Drawing.Size(73, 15)
+        Me.Label4Fromages.TabIndex = 4
+        Me.Label4Fromages.Text = "4 Fromages"
+        '
+        'PictureBoxMargherita
+        '
+        Me.PictureBoxMargherita.Image = CType(resources.GetObject("PictureBoxMargherita.Image"), System.Drawing.Image)
+        Me.PictureBoxMargherita.Location = New System.Drawing.Point(446, 46)
+        Me.PictureBoxMargherita.Name = "PictureBoxMargherita"
+        Me.PictureBoxMargherita.Size = New System.Drawing.Size(130, 74)
+        Me.PictureBoxMargherita.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBoxMargherita.TabIndex = 3
+        Me.PictureBoxMargherita.TabStop = False
+        '
+        'PictureBoxBonPlan
+        '
+        Me.PictureBoxBonPlan.Image = CType(resources.GetObject("PictureBoxBonPlan.Image"), System.Drawing.Image)
+        Me.PictureBoxBonPlan.Location = New System.Drawing.Point(249, 44)
+        Me.PictureBoxBonPlan.Name = "PictureBoxBonPlan"
+        Me.PictureBoxBonPlan.Size = New System.Drawing.Size(118, 76)
+        Me.PictureBoxBonPlan.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBoxBonPlan.TabIndex = 2
+        Me.PictureBoxBonPlan.TabStop = False
+        '
+        'PictureBox4Fromages
+        '
+        Me.PictureBox4Fromages.Image = CType(resources.GetObject("PictureBox4Fromages.Image"), System.Drawing.Image)
+        Me.PictureBox4Fromages.Location = New System.Drawing.Point(19, 44)
+        Me.PictureBox4Fromages.Name = "PictureBox4Fromages"
+        Me.PictureBox4Fromages.Size = New System.Drawing.Size(122, 76)
+        Me.PictureBox4Fromages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox4Fromages.TabIndex = 1
+        Me.PictureBox4Fromages.TabStop = False
         '
         'LabelSelectionPizza
         '
@@ -456,86 +532,40 @@ Partial Class Form1
         Me.LabelSelectionPizza.TabIndex = 0
         Me.LabelSelectionPizza.Text = "Selection Pizza"
         '
-        'PictureBox2
+        'PanelSize
         '
-        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(19, 44)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(122, 76)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox2.TabIndex = 1
-        Me.PictureBox2.TabStop = False
+        Me.PanelSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelSize.Controls.Add(Me.Label4)
+        Me.PanelSize.Controls.Add(Me.ComboBoxSmall)
+        Me.PanelSize.Controls.Add(Me.LabelSmall)
+        Me.PanelSize.Controls.Add(Me.LabelLarge)
+        Me.PanelSize.Controls.Add(Me.ComboBoxLarge)
+        Me.PanelSize.Controls.Add(Me.ComboBoxMedium)
+        Me.PanelSize.Controls.Add(Me.LabelMedium)
+        Me.PanelSize.Location = New System.Drawing.Point(173, 222)
+        Me.PanelSize.Name = "PanelSize"
+        Me.PanelSize.Size = New System.Drawing.Size(466, 86)
+        Me.PanelSize.TabIndex = 33
         '
-        'PictureBox3
+        'Label4
         '
-        Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(249, 44)
-        Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(118, 76)
-        Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox3.TabIndex = 2
-        Me.PictureBox3.TabStop = False
-        '
-        'PictureBox4
-        '
-        Me.PictureBox4.Image = CType(resources.GetObject("PictureBox4.Image"), System.Drawing.Image)
-        Me.PictureBox4.Location = New System.Drawing.Point(446, 46)
-        Me.PictureBox4.Name = "PictureBox4"
-        Me.PictureBox4.Size = New System.Drawing.Size(130, 74)
-        Me.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox4.TabIndex = 3
-        Me.PictureBox4.TabStop = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(100, 15)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(142, 20)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Personnalisation"
-        '
-        'Label4Fromages
-        '
-        Me.Label4Fromages.AutoSize = True
-        Me.Label4Fromages.Location = New System.Drawing.Point(46, 123)
-        Me.Label4Fromages.Name = "Label4Fromages"
-        Me.Label4Fromages.Size = New System.Drawing.Size(62, 13)
-        Me.Label4Fromages.TabIndex = 4
-        Me.Label4Fromages.Text = "4 Fromages"
-        '
-        'LabelBonplan
-        '
-        Me.LabelBonplan.AutoSize = True
-        Me.LabelBonplan.Location = New System.Drawing.Point(281, 123)
-        Me.LabelBonplan.Name = "LabelBonplan"
-        Me.LabelBonplan.Size = New System.Drawing.Size(50, 13)
-        Me.LabelBonplan.TabIndex = 5
-        Me.LabelBonplan.Text = "Bon Plan"
-        '
-        'LabelMargherita
-        '
-        Me.LabelMargherita.AutoSize = True
-        Me.LabelMargherita.Location = New System.Drawing.Point(483, 123)
-        Me.LabelMargherita.Name = "LabelMargherita"
-        Me.LabelMargherita.Size = New System.Drawing.Size(57, 13)
-        Me.LabelMargherita.TabIndex = 6
-        Me.LabelMargherita.Text = "Margherita"
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(210, 10)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(44, 20)
+        Me.Label4.TabIndex = 32
+        Me.Label4.Text = "Size"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
+        Me.BackColor = System.Drawing.SystemColors.ScrollBar
         Me.ClientSize = New System.Drawing.Size(1223, 635)
+        Me.Controls.Add(Me.PanelSize)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.ComboBox1000gr)
-        Me.Controls.Add(Me.ComboBox500gr)
-        Me.Controls.Add(Me.ComboBox250gr)
-        Me.Controls.Add(Me.Label250gr)
-        Me.Controls.Add(Me.Label500gr)
-        Me.Controls.Add(Me.Label1000gr)
         Me.Controls.Add(Me.PanelCategorie)
         Me.Controls.Add(Me.PanelRecommandation)
         Me.Controls.Add(Me.Label3)
@@ -563,9 +593,11 @@ Partial Class Form1
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxMargherita, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBoxBonPlan, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox4Fromages, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelSize.ResumeLayout(False)
+        Me.PanelSize.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -607,19 +639,21 @@ Partial Class Form1
     Friend WithEvents PictureBox1 As PictureBox
 
 
-    Friend WithEvents Label1000gr As Label
-    Friend WithEvents Label500gr As Label
-    Friend WithEvents Label250gr As Label
-    Friend WithEvents ComboBox250gr As ComboBox
-    Friend WithEvents ComboBox500gr As ComboBox
-    Friend WithEvents ComboBox1000gr As ComboBox
+    Friend WithEvents LabelLarge As Label
+    Friend WithEvents LabelMedium As Label
+    Friend WithEvents LabelSmall As Label
+    Friend WithEvents ComboBoxSmall As ComboBox
+    Friend WithEvents ComboBoxMedium As ComboBox
+    Friend WithEvents ComboBoxLarge As ComboBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents LabelMargherita As Label
     Friend WithEvents LabelBonplan As Label
     Friend WithEvents Label4Fromages As Label
-    Friend WithEvents PictureBox4 As PictureBox
-    Friend WithEvents PictureBox3 As PictureBox
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents PictureBoxMargherita As PictureBox
+    Friend WithEvents PictureBoxBonPlan As PictureBox
+    Friend WithEvents PictureBox4Fromages As PictureBox
     Friend WithEvents LabelSelectionPizza As Label
+    Friend WithEvents PanelSize As Panel
+    Friend WithEvents Label4 As Label
 End Class
