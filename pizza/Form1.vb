@@ -7,6 +7,7 @@
     Dim p2 As Pizza = New Pizza()
     Dim p3 As Pizza = New Pizza()
 
+    Dim comman As String = " "
 
     Dim listPizza As New List(Of Pizza)
 
@@ -18,8 +19,23 @@
         ' initialisation des quantité à 0
         initQuantity()
         ' personnalisation
-        ComboBoxCuisson.Text = "Classique"
-        ComboBoxPate.Text = "Fine"
+        ComboBoxCuisson.Text = " "
+        ComboBoxPate.Text = " "
+        ComboBoxCuisson.Enabled = True
+        ComboBoxPate.Enabled = True
+        DisableSizeComboBox()
+        Label4Fromages.BackColor = Color.White
+        LabelBonplan.BackColor = Color.White
+        LabelMargherita.BackColor = Color.White
+        TextBoxResume.Text = ""
+        ToolTip1.SetToolTip(ButtonConsulter1, "tomates, oignons, poivrons" + Environment.NewLine + "champignons
+huile d’olive" + Environment.NewLine + "sel, poivre et épices")
+        ToolTip2.SetToolTip(ButtonConsulter2, "maïs,courgettes,tofu" + Environment.NewLine + "brocolis
+        " + Environment.NewLine + "tomates en rondelle")
+
+        ToolTip3.SetToolTip(ButtonConsulter3, "bûche de chèvre,tomates" + Environment.NewLine + "lardons,parmesan")
+        ToolTip4.SetToolTip(Button1, " d'oignons pelés,olives noires" + Environment.NewLine + "filets d'anchois,tomates")
+
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -37,10 +53,10 @@
                 Label4Fromages.BackColor = Color.LightBlue
                 currentPizza = p1
                 listPizza.Add(p1)
-                currentState = State.COMMANDE_ENCOURS
                 DisableBonPlanMargherita()
                 EnableSizeComboBox()
-                Debug.Print(currentState.ToString)
+                currentState = State.COMMANDE_ENCOURS
+                'Debug.Print(currentState.ToString)
             Case State.COMMANDE_ENCOURS
                 '
             Case State.CONSULTER_CATEGORIE
@@ -51,10 +67,13 @@
                 p1.CreatePizza("4Fromages", "undefined", "Bien Cuite", "Fine")
                 Label4Fromages.BackColor = Color.LightBlue
                 listPizza.Add(p1)
-                currentState = State.COMMANDE_ENCOURS
+                currentPizza = p1
                 DisableBonPlanMargherita()
                 EnableSizeComboBox()
-                Debug.Print(currentState.ToString)
+                currentState = State.COMMANDE_ENCOURS
+                initQuantity()
+                initCuissonPate()
+                'Debug.Print(currentState.ToString)
 
         End Select
 
@@ -67,9 +86,9 @@
                 currentPizza = p2
                 LabelBonplan.BackColor = Color.LightBlue
                 listPizza.Add(p2)
-                currentState = State.COMMANDE_ENCOURS
                 Disable4FromagesMargherita()
                 EnableSizeComboBox()
+                currentState = State.COMMANDE_ENCOURS
                 '
             Case State.COMMANDE_ENCOURS
                 '
@@ -80,13 +99,13 @@
             Case State.PERSONNALISER_COMMANDE
                 p2.CreatePizza("Bon Plan", "undefined", "Bien Cuite", "Fine")
                 LabelBonplan.BackColor = Color.LightBlue
-                currentPizza = p2
-                initQuantity()
                 listPizza.Add(p2)
-                currentState = State.COMMANDE_ENCOURS
+                currentPizza = p2
                 Disable4FromagesMargherita()
                 EnableSizeComboBox()
-                TextBoxResume.AppendText(p1.ToString)
+                currentState = State.COMMANDE_ENCOURS
+                initQuantity()
+                initCuissonPate()
         End Select
 
     End Sub
@@ -96,8 +115,8 @@
             Case State.INIT
                 p3.CreatePizza("Margherita", "undefined", "Bien Cuite", "Fine")
                 LabelMargherita.BackColor = Color.LightBlue
-                currentPizza = p3
                 listPizza.Add(p3)
+                currentPizza = p3
                 currentState = State.COMMANDE_ENCOURS
                 Disable4FromagesBonPlan()
                 EnableSizeComboBox()
@@ -111,16 +130,17 @@
                 '
             Case State.PERSONNALISER_COMMANDE
                 p3.CreatePizza("Margherita", "undefined", "Bien Cuite", "Fine")
-                Label4Fromages.BackColor = Color.LightBlue
-                currentPizza = p3
-                initQuantity()
+                LabelMargherita.BackColor = Color.LightBlue
                 listPizza.Add(p3)
+                currentPizza = p3
                 currentState = State.COMMANDE_ENCOURS
+
                 Disable4FromagesBonPlan()
                 EnableSizeComboBox()
+                initQuantity()
+                initCuissonPate()
         End Select
     End Sub
-
 
 #End Region
 
@@ -132,16 +152,22 @@
             Case State.INIT
             Case State.COMMANDE_ENCOURS
                 If (Not (ComboBoxSmall.Text.Equals("0"))) Then
-                    p1.Taille = "Small"
-                    TextBoxResume.AppendText(p1.Nom + " ( x " + ComboBoxSmall.Text + " " + currentPizza.Taille + ")")
-                    currentState = State.COMMANDE_ENCOURS
-                    ButtonPasserCommand.Enabled = True
+                    currentPizza.Taille = "Small"
+                    TextBoxResume.AppendText(Environment.NewLine + currentPizza.Nom + " ( x " + ComboBoxSmall.Text + " " + currentPizza.Taille + ")")
+                    currentState = State.COMMANDE_SIZE
                 End If
-                UpdateTextBox()
+                ComboBoxSmall.Enabled = False
             Case State.COMMANDE_SIZE
-                UpdateTextBox()
+                If (Not (ComboBoxSmall.Text.Equals("0"))) Then
+                    currentPizza.Taille = "Small"
+                    TextBoxResume.AppendText(Environment.NewLine + currentPizza.Nom + " ( x " + ComboBoxSmall.Text + " " + currentPizza.Taille + ")")
+                    currentState = State.COMMANDE_SIZE
+                Else
+                    currentState = State.COMMANDE_ENCOURS
+                End If
+                ComboBoxSmall.Enabled = False
+
             Case State.PERSONNALISER_COMMANDE
-                UpdateTextBox()
             Case State.PASSER_COMMANDE
         End Select
     End Sub
@@ -151,18 +177,21 @@
             Case State.INIT
             Case State.COMMANDE_ENCOURS
                 If (Not (ComboBoxMedium.Text.Equals("0"))) Then
-                    p1.Taille = "Medium"
-                    TextBoxResume.AppendText(currentPizza.Nom + " ( x " + ComboBoxMedium.Text + " " + currentPizza.Taille + ")")
-                    currentState = State.COMMANDE_ENCOURS
-                    ButtonPasserCommand.Enabled = True
+                    currentPizza.Taille = "Medium"
+                    TextBoxResume.AppendText(Environment.NewLine + currentPizza.Nom + " ( x " + ComboBoxMedium.Text + " " + currentPizza.Taille + ")")
+                    currentState = State.COMMANDE_SIZE
                 End If
-                UpdateTextBox()
+                ComboBoxMedium.Enabled = False
             Case State.COMMANDE_SIZE
-                UpdateTextBox()
-                currentState = State.COMMANDE_SIZE
+                If (Not (ComboBoxMedium.Text.Equals("0"))) Then
+                    currentPizza.Taille = "Medium"
+                    TextBoxResume.AppendText(Environment.NewLine + currentPizza.Nom + " ( x " + ComboBoxMedium.Text + " " + currentPizza.Taille + ")")
+                    currentState = State.COMMANDE_SIZE
+                Else
+                    currentState = State.COMMANDE_ENCOURS
+                End If
+                ComboBoxMedium.Enabled = False
             Case State.PERSONNALISER_COMMANDE
-                UpdateTextBox()
-                currentState = State.PERSONNALISER_COMMANDE
             Case State.PASSER_COMMANDE
         End Select
     End Sub
@@ -172,19 +201,22 @@
             Case State.INIT
             Case State.COMMANDE_ENCOURS
                 If (Not (ComboBoxLarge.Text.Equals("0"))) Then
-                    p1.Taille = "Large"
-                    TextBoxResume.AppendText(currentPizza.Nom + " ( x " + ComboBoxLarge.Text + " " + currentPizza.Taille + ")")
-                    currentState = State.COMMANDE_ENCOURS
-                    ButtonPasserCommand.Enabled = True
-                End If
-                UpdateTextBox()
-            Case State.COMMANDE_SIZE
+                    currentPizza.Taille = "Large"
+                    TextBoxResume.AppendText(Environment.NewLine + currentPizza.Nom + " ( x " + ComboBoxLarge.Text + " " + currentPizza.Taille + ")")
+                    currentState = State.COMMANDE_SIZE
 
-                UpdateTextBox()
-                currentState = State.COMMANDE_SIZE
+                End If
+                ComboBoxLarge.Enabled = False
+            Case State.COMMANDE_SIZE
+                If (Not (ComboBoxLarge.Text.Equals("0"))) Then
+                    currentPizza.Taille = "Large"
+                    TextBoxResume.AppendText(Environment.NewLine + currentPizza.Nom + " ( x " + ComboBoxLarge.Text + " " + currentPizza.Taille + ")")
+                    currentState = State.COMMANDE_SIZE
+                Else
+                    currentState = State.COMMANDE_ENCOURS
+                End If
+                ComboBoxLarge.Enabled = False
             Case State.PERSONNALISER_COMMANDE
-                UpdateTextBox()
-                currentState = State.PERSONNALISER_COMMANDE
             Case State.PASSER_COMMANDE
         End Select
     End Sub
@@ -192,34 +224,25 @@
 #End Region
 
 
-    Private Sub UpdateTextBox()
-        TextBoxResume.Text = " "
-        If (Not (ComboBoxSmall.Text.Equals("0"))) Then
-            TextBoxResume.AppendText(currentPizza.Nom + " ( x " + ComboBoxSmall.Text + "  Small) ")
-        ElseIf (ComboBoxSmall.Text.Equals("0")) Then
-            TextBoxResume.AppendText(" ")
-        End If
+    Private Sub UpdateNumber(number As String)
+        Dim newLine As String = " "
 
-        If (Not (ComboBoxMedium.Text.Equals("0"))) Then
-            TextBoxResume.AppendText(currentPizza.Nom + " ( x " + ComboBoxMedium.Text + "  Medium)")
-            ButtonPasserCommand.Enabled = True
-        Else
-            TextBoxResume.AppendText(" ")
-        End If
-        If (Not (ComboBoxLarge.Text.Equals("0"))) Then
-            TextBoxResume.AppendText(currentPizza.Nom + " ( x " + ComboBoxLarge.Text + "  Large)")
-            ButtonPasserCommand.Enabled = True
-        Else
-            TextBoxResume.AppendText(" ")
-        End If
+        For Each line In TextBoxResume.Lines
 
-        If (TextBoxResume.Text.Length <> 0) Then
-            TextBoxResume.AppendText(Environment.NewLine + " Cuisson :" + ComboBoxCuisson.Text)
-            TextBoxResume.AppendText(Environment.NewLine + " Pate :" + ComboBoxPate.Text)
-            TextBoxResume.AppendText(Environment.NewLine + "-------------------")
-        End If
+            If (line.Contains(currentPizza.Nom) And line.Contains(currentPizza.Taille)) Then
+                If (Not number.Equals("0")) Then
+                    newLine = currentPizza.Nom + "( x " + number + " " + currentPizza.Taille + ")"
+                    If (Not (TextBoxResume.Text.Contains(newLine))) Then
+                        TextBoxResume.Text = TextBoxResume.Text.Replace(line, newLine)
+                    End If
+                Else
+                    TextBoxResume.Text = TextBoxResume.Text.Replace(line, " ")
+                End If
+            End If
+        Next
 
     End Sub
+
 
 
 #Region "activation selection de pizza"
@@ -262,19 +285,19 @@
             Case State.INIT
                 '
             Case State.COMMANDE_ENCOURS
-                p1.Cuisson = ComboBoxCuisson.Text
+                currentPizza.Cuisson = ComboBoxCuisson.Text
+                TextBoxResume.AppendText(Environment.NewLine + "Cuisson : " + ComboBoxCuisson.Text)
                 currentState = State.PERSONNALISER_COMMANDE
-                UpdateTextBox()
+                ComboBoxCuisson.Enabled = False
             Case State.COMMANDE_SIZE
                 currentState = State.PERSONNALISER_COMMANDE
-                p1.Cuisson = ComboBoxCuisson.Text
-                UpdateTextBox()
+                currentPizza.Cuisson = ComboBoxCuisson.Text
+                TextBoxResume.AppendText(Environment.NewLine + "Cuisson : " + ComboBoxCuisson.Text)
             Case State.PERSONNALISER_COMMANDE
-                UpdateTextBox()
+                ComboBoxCuisson.Enabled = False
                 currentState = State.PERSONNALISER_COMMANDE
             Case State.PASSER_COMMANDE
         End Select
-        p1.Cuisson = ComboBoxCuisson.Text
     End Sub
 
     Private Sub ComboBoxPate_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBoxPate.SelectedIndexChanged
@@ -283,19 +306,27 @@
                 '
             Case State.COMMANDE_ENCOURS
                 currentState = State.PERSONNALISER_COMMANDE
-                p1.Pate = ComboBoxPate.Text
-                UpdateTextBox()
+                currentPizza.Pate = ComboBoxPate.Text
+                TextBoxResume.AppendText(Environment.NewLine + "Pate : " + ComboBoxPate.Text)
+                TextBoxResume.AppendText(Environment.NewLine + "------------------" + Environment.NewLine)
+                ButtonPasserCommand.Enabled = True
+                ComboBoxPate.Enabled = False
             Case State.COMMANDE_SIZE
                 currentState = State.PERSONNALISER_COMMANDE
-                p1.Pate = ComboBoxPate.Text
-                UpdateTextBox()
+                currentPizza.Pate = ComboBoxPate.Text
+                TextBoxResume.AppendText(Environment.NewLine + "Pate : " + ComboBoxPate.Text)
+                TextBoxResume.AppendText(Environment.NewLine + "------------------" + Environment.NewLine)
+                ButtonPasserCommand.Enabled = True
+                ComboBoxPate.Enabled = False
             Case State.PERSONNALISER_COMMANDE
                 currentState = State.PERSONNALISER_COMMANDE
-                p1.Pate = ComboBoxPate.Text
-                UpdateTextBox()
+                currentPizza.Pate = ComboBoxPate.Text
+                TextBoxResume.AppendText(Environment.NewLine + "Pate : " + ComboBoxPate.Text)
+                TextBoxResume.AppendText(Environment.NewLine + "------------------" + Environment.NewLine)
+                ButtonPasserCommand.Enabled = True
+                ComboBoxPate.Enabled = False
             Case State.PASSER_COMMANDE
         End Select
-        p1.Pate = ComboBoxPate.Text
     End Sub
 
 #End Region
@@ -306,5 +337,18 @@
         ComboBoxLarge.Text = "0"
     End Sub
 
+    Private Sub initCuissonPate()
+        ComboBoxCuisson.Text = " "
+        ComboBoxPate.Text = " "
+    End Sub
+
+    Private Sub ButtonPasserCommand_Click(sender As Object, e As EventArgs) Handles ButtonPasserCommand.Click
+        If (MessageBox.Show(TextBoxResume.Text + Environment.NewLine + "La commande vous sera livrée bientot" + Environment.NewLine + "Voulez-vous passer une nouvelle commande?", "Votre commande", MessageBoxButtons.YesNo) = DialogResult.Yes) Then
+            InitDialogue()
+        Else
+
+            Application.Exit()
+        End If
+    End Sub
 End Class
 

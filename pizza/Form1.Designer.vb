@@ -22,6 +22,7 @@ Partial Class Form1
     'Ne la modifiez pas à l'aide de l'éditeur de code.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PanelResume = New System.Windows.Forms.Panel()
         Me.TextBoxResume = New System.Windows.Forms.TextBox()
@@ -68,6 +69,10 @@ Partial Class Form1
         Me.LabelSelectionPizza = New System.Windows.Forms.Label()
         Me.PanelSize = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolTip2 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolTip3 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.ToolTip4 = New System.Windows.Forms.ToolTip(Me.components)
         Me.PanelResume.SuspendLayout()
         Me.PanelCuissonPate.SuspendLayout()
         CType(Me.PictureBoxRecommandation2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -166,7 +171,7 @@ Partial Class Form1
         '
         'PanelCuissonPate
         '
-        Me.PanelCuissonPate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelCuissonPate.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.PanelCuissonPate.Controls.Add(Me.Label1)
         Me.PanelCuissonPate.Controls.Add(Me.LabelTypeCuisson)
         Me.PanelCuissonPate.Controls.Add(Me.LabelTypePate)
@@ -328,7 +333,7 @@ Partial Class Form1
         '
         'PanelRecommandation
         '
-        Me.PanelRecommandation.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelRecommandation.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.PanelRecommandation.Controls.Add(Me.PictureBoxRecommandation2)
         Me.PanelRecommandation.Controls.Add(Me.PictureBoxRecommandation1)
         Me.PanelRecommandation.Controls.Add(Me.LabelRecommandations)
@@ -339,7 +344,7 @@ Partial Class Form1
         '
         'PanelCategorie
         '
-        Me.PanelCategorie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelCategorie.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.PanelCategorie.Controls.Add(Me.Button1)
         Me.PanelCategorie.Controls.Add(Me.LabelCategorie4)
         Me.PanelCategorie.Controls.Add(Me.PictureBox1)
@@ -446,7 +451,7 @@ Partial Class Form1
         '
         'Panel1
         '
-        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.Panel1.Controls.Add(Me.LabelMargherita)
         Me.Panel1.Controls.Add(Me.LabelBonplan)
         Me.Panel1.Controls.Add(Me.Label4Fromages)
@@ -534,7 +539,7 @@ Partial Class Form1
         '
         'PanelSize
         '
-        Me.PanelSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PanelSize.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.PanelSize.Controls.Add(Me.Label4)
         Me.PanelSize.Controls.Add(Me.ComboBoxSmall)
         Me.PanelSize.Controls.Add(Me.LabelSmall)
@@ -656,4 +661,8 @@ Partial Class Form1
     Friend WithEvents LabelSelectionPizza As Label
     Friend WithEvents PanelSize As Panel
     Friend WithEvents Label4 As Label
+    Friend WithEvents ToolTip1 As ToolTip
+    Friend WithEvents ToolTip2 As ToolTip
+    Friend WithEvents ToolTip3 As ToolTip
+    Friend WithEvents ToolTip4 As ToolTip
 End Class
